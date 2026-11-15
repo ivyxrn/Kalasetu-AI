@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #F7F3EA;
+    color: #49372B;
+    font-family: 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.lang-hi body {
+    font-family: 'Noto Sans Devanagari', 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-terracotta text-white px-5 py-2.5 rounded-lg font-sans font-medium text-sm
+           hover:bg-terracotta-light active:bg-terracotta-dark transition-colors duration-200
+           flex items-center gap-2 cursor-pointer;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-sans font-medium
+           text-brown/70 hover:text-brown hover:bg-beige/70 transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply bg-terracotta/10 text-terracotta hover:bg-terracotta/15 hover:text-terracotta;
+  }
+
+  .stat-card {
+    @apply bg-beige-light border border-beige-dark/50 rounded-xl p-4 flex items-center gap-4
+           shadow-card hover:shadow-card-hover transition-all duration-200;
+  }
+
+  .action-card {
+    @apply bg-beige-light border border-beige-dark/50 rounded-xl p-4 flex items-center gap-3
+           shadow-card hover:shadow-card-hover hover:border-terracotta/20 cursor-pointer
+           transition-all duration-200;
+  }
+
+  .artwork-card {
+    @apply bg-beige-light border border-beige-dark/50 rounded-xl overflow-hidden
+           shadow-card hover:shadow-card-hover transition-all duration-200;
+  }
+
+  .section-divider {
+    @apply flex items-center gap-3 mb-5;
+  }
+
+  .section-title {
+    @apply font-sans font-semibold text-brown text-base;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #D5B77A transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #D5B77A;
+    border-radius: 2px;
+  }
+
+  /* Accessibility Global Modifiers */
+  html.high-contrast {
+    filter: contrast(1.12);
+  }
+
+  html.high-contrast body {
+    color: #2D1F17;
+  }
+
+  html.reduced-motion *,
+  html.reduced-motion *::before,
+  html.reduced-motion *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}
